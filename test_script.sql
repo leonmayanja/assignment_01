@@ -54,47 +54,83 @@ CREATE TABLE treatment (
 -- DML (Data Manipulation Language)
 -- Inserting Data
 
-INSERT INTO doctors (fname, lname, speciality, phone_no) VALUES
-('Karangwa', 'Aliane', 'Cardiology', '0784567890'),
-('Mukiza', 'Claudette', 'Neurology', '0795678901'),
-('Niwemwana', 'Odette', 'Pediatrics', '0736789012'),
-('Nkuranga', 'Chantal', 'Orthopedics', '0727890123'),
-('Ufitikirezi', 'Eugenie', 'Dermatology', '0788901234');
+INSERT INTO doctors (fname, lname, speciality, phone_no) 
+VALUES ('Karangwa', 'Aliane', 'Cardiology', '0784567890');
 
-INSERT INTO patients (fname, lname, dob, height, weight, phone_no) VALUES
-('Mukunzi', 'Belyse', TO_DATE('1980-09-22', 'YYYY-MM-DD'), 1.75, 78.50, '0784567890'),
-('Gikundiro', 'Rosine', TO_DATE('1950-01-30', 'YYYY-MM-DD'), 1.65, 68.25, '0787654321'),
-('Irahari', 'Nadine', TO_DATE('1949-12-05', 'YYYY-MM-DD'), 1.70, 82.10, '0795678901'),
-('Nshuti', 'Braille', TO_DATE('1965-03-11', 'YYYY-MM-DD'), 1.80, 90.45, '0736789012'),
-('Mukunzi', 'Yannick', TO_DATE('2010-06-15', 'YYYY-MM-DD'), 1.30, 35.30, '0797890123');
+INSERT INTO doctors (fname, lname, speciality, phone_no) 
+VALUES ('Mukiza', 'Claudette', 'Neurology', '0795678901');
 
-INSERT INTO rooms (room_no) VALUES
-('101'),
-('102'),
-('103'),
-('104'),
-('105');
+INSERT INTO doctors (fname, lname, speciality, phone_no) 
+VALUES ('Niwemwana', 'Odette', 'Pediatrics', '0736789012');
 
-INSERT INTO prescription_counters (counter_no) VALUES
-('201'),
-('202'),
-('203'),
-('204'),
-('205');
+INSERT INTO doctors (fname, lname, speciality, phone_no) 
+VALUES ('Nkuranga', 'Chantal', 'Orthopedics', '0727890123');
 
-INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) VALUES
-(1, 5, 1, TO_DATE('2024-07-01', 'YYYY-MM-DD'), TO_TIMESTAMP('09:00:00', 'HH24:MI:SS')),
-(2, 4, 2, TO_DATE('2024-07-02', 'YYYY-MM-DD'), TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')),
-(3, 3, 3, TO_DATE('2024-07-03', 'YYYY-MM-DD'), TO_TIMESTAMP('11:00:00', 'HH24:MI:SS')),
-(4, 2, 4, TO_DATE('2024-07-04', 'YYYY-MM-DD'), TO_TIMESTAMP('14:00:00', 'HH24:MI:SS')),
-(5, 1, 5, TO_DATE('2024-07-05', 'YYYY-MM-DD'), TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'));
+INSERT INTO doctors (fname, lname, speciality, phone_no) 
+VALUES ('Ufitikirezi', 'Eugenie', 'Dermatology', '0788901234');
 
-INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) VALUES
-(1, 'Aspirin', 5, TO_DATE('2024-07-01', 'YYYY-MM-DD')),
-(2, 'Ibuprofen', 4, TO_DATE('2024-07-02', 'YYYY-MM-DD')),
-(3, 'Amoxicillin', 3, TO_DATE('2024-07-03', 'YYYY-MM-DD')),
-(4, 'Paracetamol', 2, TO_DATE('2024-07-04', 'YYYY-MM-DD')),
-(5, 'Metformin', 1, TO_DATE('2024-07-05', 'YYYY-MM-DD'));
+
+INSERT INTO patients (fname, lname, dob, height, weight, phone_no) 
+VALUES ('Mukunzi', 'Belyse', TO_DATE('1980-09-22', 'YYYY-MM-DD'), 1.75, 78.50, '0784567890');
+
+INSERT INTO patients (fname, lname, dob, height, weight, phone_no) 
+VALUES ('Gikundiro', 'Rosine', TO_DATE('1950-01-30', 'YYYY-MM-DD'), 1.65, 68.25, '0787654321');
+
+INSERT INTO patients (fname, lname, dob, height, weight, phone_no) 
+VALUES ('Irahari', 'Nadine', TO_DATE('1949-12-05', 'YYYY-MM-DD'), 1.70, 82.10, '0795678901');
+
+INSERT INTO patients (fname, lname, dob, height, weight, phone_no) 
+VALUES ('Nshuti', 'Braille', TO_DATE('1965-03-11', 'YYYY-MM-DD'), 1.80, 90.45, '0736789012');
+
+INSERT INTO patients (fname, lname, dob, height, weight, phone_no) 
+VALUES ('Mukunzi', 'Yannick', TO_DATE('2010-06-15', 'YYYY-MM-DD'), 1.30, 35.30, '0797890123');
+
+
+INSERT INTO rooms (room_no) VALUES ('101');
+INSERT INTO rooms (room_no) VALUES ('102');
+INSERT INTO rooms (room_no) VALUES ('103');
+INSERT INTO rooms (room_no) VALUES ('104');
+INSERT INTO rooms (room_no) VALUES ('105');
+
+
+INSERT INTO prescription_counters (counter_no) VALUES ('201');
+INSERT INTO prescription_counters (counter_no) VALUES ('202');
+INSERT INTO prescription_counters (counter_no) VALUES ('203');
+INSERT INTO prescription_counters (counter_no) VALUES ('204');
+INSERT INTO prescription_counters (counter_no) VALUES ('205');
+
+
+INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) 
+VALUES (1, 5, 1, TO_DATE('2024-07-01', 'YYYY-MM-DD'), TO_TIMESTAMP('09:00:00', 'HH24:MI:SS'));
+
+INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) 
+VALUES (2, 4, 2, TO_DATE('2024-07-02', 'YYYY-MM-DD'), TO_TIMESTAMP('10:00:00', 'HH24:MI:SS'));
+
+INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) 
+VALUES (3, 3, 3, TO_DATE('2024-07-03', 'YYYY-MM-DD'), TO_TIMESTAMP('11:00:00', 'HH24:MI:SS'));
+
+INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) 
+VALUES (4, 2, 4, TO_DATE('2024-07-04', 'YYYY-MM-DD'), TO_TIMESTAMP('14:00:00', 'HH24:MI:SS'));
+
+INSERT INTO appointments (doctor_id, patient_id, room_id, appointment_date, appointment_time) 
+VALUES (5, 1, 5, TO_DATE('2024-07-05', 'YYYY-MM-DD'), TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'));
+
+
+INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) 
+VALUES (1, 'Aspirin', 5, TO_DATE('2024-07-01', 'YYYY-MM-DD'));
+
+INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) 
+VALUES (2, 'Ibuprofen', 4, TO_DATE('2024-07-02', 'YYYY-MM-DD'));
+
+INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) 
+VALUES (3, 'Amoxicillin', 3, TO_DATE('2024-07-03', 'YYYY-MM-DD'));
+
+INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) 
+VALUES (4, 'Paracetamol', 2, TO_DATE('2024-07-04', 'YYYY-MM-DD'));
+
+INSERT INTO treatment (patient_id, prescription, counter_id, treatment_date) 
+VALUES (5, 'Metformin', 1, TO_DATE('2024-07-05', 'YYYY-MM-DD'));
+
 
 -- Updating Data
 
