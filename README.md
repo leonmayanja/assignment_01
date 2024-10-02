@@ -6,9 +6,9 @@ The goal of this project is to create and manage a hospital database using Oracl
 
 ## Conceptual Diagram
 
-The conceptual diagram for this project is a relational database model where tables such as doctors, patients, rooms, appointments, prescription_counters, and treatment are interconnected.
+The hospital database is structured as a relational database model where multiple entities (doctors, patients, rooms, appointments, prescription counters, and treatments) are interconnected through relationships such as one-to-one, one-to-many and many-to-one.
 
-![Database ERD](./images/erd.png)
+![Database ERD](./images/erd.svg)
 
 ## Description of SQL Operations
 
@@ -16,7 +16,7 @@ The conceptual diagram for this project is a relational database model where tab
 
 DDL (Data Definition Language) is used to define and manage database objects such as tables.
 
-Tables are created using CREATE TABLE, and Primary Keys and Foreign Keys are defined to enforce data integrity e.g.
+Tables are created using CREATE TABLE, and Primary Keys and Foreign Keys are defined to enforce data integrity. Below is the query used to create the doctors table.
 
 ```sql
 CREATE TABLE doctors (
@@ -32,69 +32,38 @@ CREATE TABLE doctors (
 
 DML (Data Manipulation Language) is used to manage data in the tables (e.g., insert, update, delete).
 
-The script inserts sample data into the tables using INSERT INTO.
+The script **inserts** sample data into the tables using INSERT INTO.
 
 ![Insert query](./images/insert.png)
 ![Select statement](./images/select.png)
 
-Updates records in the patients table and deletes records from appointments and patients using UPDATE and DELETE.
+**Updates** records in the patients table using UPDATE.
 
-Example Update Query:
+![Update query](./images/update.png)
 
-```sql
-UPDATE patients
-SET height = 1.76
-WHERE id = 1;
-```
+**Deletes** records from appointments using DELETE.
 
-<!-- Figure 3: Updating Patient Height -->
-
-Example Delete Query:
-
-```sql
-DELETE FROM appointments WHERE id = 5;
-```
+![Delete query](./images/delete.png)
 
 #### Joins:
 
-Joins are used to retrieve related data across tables, such as retrieving doctor and patient details for specific appointments.
+Joins are used to retrieve related data across tables. The screenshot below shows how a join can be used to retrieve doctor and patient details for specific appointments.
 
-Example Join Query:
-SELECT
-p.fname || ' ' || p.lname AS patient_name,
-d.fname || ' ' || d.lname AS doctor_name,
-d.speciality AS specialty,
-r.room_no AS room_number,
-a.appointment_date,
-a.appointment_time
-FROM appointments a
-JOIN patients p ON a.patient_id = p.id
-JOIN doctors d ON a.doctor_id = d.id
-JOIN rooms r ON a.room_id = r.id;
-
-<!-- Figure 4: Retrieving Appointment Details Using Joins -->
+![Join](./images/join.png)
 
 #### Subqueries:
 
-Subqueries are used to fetch specific data, such as finding patients older than 30 years.
+Subqueries are used to fetch specific data. The subquery below only returns patients older than 30 years.
 
-Example Subquery:
-SELECT fname, lname, dob
-FROM patients
-WHERE dob < (SELECT ADD_MONTHS(SYSDATE, -12\*30) FROM dual); -- Patients older than 30 years
-
-<!-- Figure 5: Subquery to Find Patients Older than 30 Years -->
+![Subqquert](./images/subquery.png)
 
 ### Data Control Language (DCL):
 
 DCL (Data Control Language) is used to grant and revoke access privileges to users.
 
-GRANT and REVOKE commands are used to manage user privileges on the tables.
+GRANT command is used to manage user privileges on the tables. In the screenshot below, the user is granted all privileges. This allows the user to perform any action on the database, including creating, modifying, and deleting objects.
 
-Example:
-GRANT SELECT, INSERT, UPDATE, DELETE ON appointments TO user1;
-
-<!-- Figure 6: Granting Permissions to User -->
+![Grant query](./images/grant.png)
 
 ### Transaction Control Language (TCL):
 
@@ -102,6 +71,8 @@ TCL (Transaction Control Language) is used to manage database transactions (e.g.
 
 The script includes COMMIT to save changes and ROLLBACK to undo changes if needed.
 
-Example:
+```sql
 COMMIT; -- To save changes
+
 ROLLBACK; -- To undo changes
+```

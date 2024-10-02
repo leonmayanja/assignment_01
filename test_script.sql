@@ -170,14 +170,11 @@ WHERE dob < (SELECT ADD_MONTHS(SYSDATE, -12*30) FROM dual);  -- Patients older t
 -- DCL (Data Control Language) - Granting and Revoking Privileges
 -- Granting permissions
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON appointments TO user1;
-GRANT SELECT, UPDATE ON doctors TO user2;
-GRANT SELECT ON patients TO user3;
+GRANT ALL PRIVILEGES TO leon;
 
 -- Revoking permissions
 
-REVOKE DELETE ON appointments FROM user1;
-REVOKE SELECT, UPDATE ON doctors FROM user2;
+REVOKE SELECT, UPDATE ON doctors FROM leon;
 
 -- TCL (Transaction Control Language)
 -- Committing the transaction
